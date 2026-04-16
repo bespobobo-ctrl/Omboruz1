@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OmborUZ — Ombor Boshqaruv Tizimi 🏭
 
-## Getting Started
+Ishlab chiqarish sexi uchun Telegram Mini App ko'rinishidagi ombor boshqaruv tizimi.
 
-First, run the development server:
+## 🚀 Xususiyatlar
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 📱 Telegram Mini App integratsiyasi
+- 👔 Rahbar paneli (xodimlar boshqaruvi)
+- 📦 Ombor bo'limi (mahsulotlar boshqaruvi)
+- 📊 Kategoriya bo'yicha saralash
+- 📱 QR kod generatsiyasi va yuklab olish
+- 🔍 Mahsulot qidirish
+- 🔐 JWT autentifikatsiya
+
+## 📋 O'rnatish
+
+### 1. MongoDB Atlas (bepul)
+1. [mongodb.com/atlas](https://mongodb.com/atlas) ga o'ting
+2. Bepul cluster yarating
+3. Connection string ni oling
+4. `.env.local` fayliga qo'ying
+
+### 2. Vercel Deploy
+1. GitHub ga push qiling
+2. [vercel.com](https://vercel.com) da import qiling
+3. Environment variables qo'shing
+4. Deploy qiling
+
+### 3. Telegram Webhook
+Deploy bo'lgandan keyin:
 ```
+https://your-app.vercel.app/api/bot
+```
+URL ni oching — webhook avtomatik o'rnatiladi.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Bot Menu Button
+@BotFather da:
+```
+/setmenubutton
+```
+URL: `https://your-app.vercel.app`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🔑 Kirish Ma'lumotlari
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Rol | Login | Parol |
+|-----|-------|-------|
+| Rahbar | 123 | 123 |
+| Ombor | Rahbar beradi | Rahbar beradi |
 
-## Learn More
+## 🛠 Texnologiyalar
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js 15 (App Router)
+- MongoDB + Mongoose
+- JWT Authentication
+- QR Code Generator
+- Telegram Web App SDK
+- Vercel Serverless
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Struktura
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/
+│   ├── page.js          # Login
+│   ├── rahbar/page.js   # Admin panel
+│   ├── ombor/page.js    # Warehouse panel
+│   └── api/
+│       ├── auth/        # Login API
+│       ├── bot/         # Telegram webhook
+│       ├── users/       # User CRUD
+│       └── products/    # Product CRUD
+├── lib/
+│   ├── db.js           # MongoDB connection
+│   ├── auth.js         # JWT utilities
+│   └── models/         # Mongoose models
+```
